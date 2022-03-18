@@ -2,7 +2,7 @@ import { useState } from 'react'
 import '../styles/Tabs.css'
 
 const Tabs = () => {
-	const [selected, setSelected] = useState('')
+	const [selected, setSelected] = useState(true)
 
 	return (
 		<div className='container'>
