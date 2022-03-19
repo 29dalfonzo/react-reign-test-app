@@ -5,12 +5,12 @@ import angular from '../assets/angularIcon.png'
 import react from '../assets/reactIcon.png'
 import vue from '../assets/vueIcon.png'
 
-const DropDown= () => {
+const DropDown= ({handleDropdownChange,selectedDropdown}) => {
 	const [show, setShow] = useState(false)
-	const [selected, setSelected] = useState({
-		name: 'Select your news',
-		icon: null
-	})
+	// const [selected, setSelected] = useState({
+	// 	name: 'Select your news',
+	// 	icon: null
+	// })
 	const options=[
 		{name:'Angular', value:'angular', img:angular},
 		{name:'React', value:'react', img:react},
@@ -19,10 +19,7 @@ const DropDown= () => {
 
 	const onSelect = (e) => {
 		console.log(e)
-		setSelected({
-			name: e.name,
-			icon: e.img
-		})
+		handleDropdownChange(e)
 		setShow(false)
 	}
 
@@ -30,8 +27,8 @@ const DropDown= () => {
 		<div className='dropdown-container'>
         <div className="dropdown">
 				<div className='dropbtn' onClick={()=>setShow(!show)} >
-					{selected.icon && <img src={selected.icon} alt={selected.name} width="20" height="20"/>}
-						{selected.name}
+					{selectedDropdown.img && <img src={selectedDropdown.img} alt={selectedDropdown.name} width="20" height="20"/>}
+						{selectedDropdown.name}
 					<img className='icon-arrow' src={arrow} alt="arrow" width="10" height="10"/>
 				</div>
 
