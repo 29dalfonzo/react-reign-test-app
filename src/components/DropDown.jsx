@@ -18,7 +18,7 @@ const DropDown= ({handleDropdownChange,selectedDropdown}) => {
 	]
 
 	const onSelect = (e) => {
-		console.log(e)
+		// console.log(e)
 		handleDropdownChange(e)
 		setShow(false)
 	}

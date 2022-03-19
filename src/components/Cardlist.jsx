@@ -4,16 +4,17 @@ import Card from './Card'
 import Pages from './Pages'
 
 
-const Cardlist = () => {
+const Cardlist = ({selectedDropdown}) => {
 	const [page, setPage] = useState(1)
 	const [hitsPerPage, setHitsPerPage] = useState(15)
+	const [url, setUrl] = useState(`https://hn.algolia.com/api/v1/search_by_date?query=${selectedDropdown}&hitsPerPage=${hitsPerPage}&page=${page}`)
 
-	let url = `https://hn.algolia.com/api/v1/search_by_date?query=&hitsPerPage=${hitsPerPage}&page=${page}`
 	const [data, setData] = useState([])
 
-	useEffect(() => {
-		fetchData()
-	}, [])
+
+	const newUrl = () => {
+		setUrl(`https://hn.algolia.com/api/v1/search_by_date?query=${selectedDropdown}&hitsPerPage=${hitsPerPage}&page=${page}`)
+	}
 
 	const fetchData = async () => {
 		try{
@@ -26,16 +27,32 @@ const Cardlist = () => {
 		}
 	}
 
-
-	const filterData = async(data) => {
+	const filterData = (data) => {
 		let filteredData = data.filter(item => item.author && item.story_title && item.story_url && item.created_at)
-		console.log(filteredData)
+		// console.log(filteredData)
 		//TODO: validate if filteredData.length == 8
 		//if not, fetch more data and filter again
 		//if yes, setData to filteredData
-			setData(filteredData.slice(0,8))
+		// console.log(filteredData.length, filteredData.length>7)
+		// if (filterData.length < 8) {
+		// 	// console.log('fetch more data',hitsPerPage,8-filteredData.length)
+		// 	setHitsPerPage(hitsPerPage + 8-filteredData.length)
+		// 	// console.log(hitsPerPage)
+		// } 
+		setData(filteredData.slice(0, 8))
 			
 	}
+
+	const handleCurrentpage= (i) => {
+		// console.log(i)
+		setPage(i)
+		// console.log(page)
+	}
+	useEffect(() => {
+		// console.log(url)
+		newUrl()
+		fetchData()
+	}, [selectedDropdown, page, url])
 
 	return (
 	<>
@@ -47,7 +64,7 @@ const Cardlist = () => {
 
 		</div>
 	</div>
-			<Pages />
+			<Pages page={page} handleCurrentpage={handleCurrentpage} />
 			</>
 	)
 }

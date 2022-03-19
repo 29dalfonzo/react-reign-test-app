@@ -1,14 +1,16 @@
-
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import '../styles/Pages.css'
 
 
-const Pages = () => {
+const Pages = ({page, handleCurrentpage}) => {
 	const [button,setButton]= useState([1,2,3,4,5,6,7,8,9])
-	const [current,setcurrent]= useState(1)
+	const [current,setcurrent]= useState(page)
+
+	useEffect(()=>{
+		handleCurrentpage(current)
+	},[current])
 
 	const handlePage =(i)=>{
-	  if(i===current) return
 		if (i<1) return
 			if(i>button[button.length-1]){
 			// console.log('es mayor')

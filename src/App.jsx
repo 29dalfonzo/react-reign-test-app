@@ -26,10 +26,10 @@ function App() {
 
   return (
     <div className='body-container'>
-			  <Header />
+		  <Header />
 			 <Tabs handleTabChange={handleTabChange} selectedTab={selectedTab} />
 			 <Dropdown handleDropdownChange={handleDropdownChange} selectedDropdown={selectedDropdown} />
-			<Cardlist />
+			<Cardlist selectedDropdown={selectedDropdown.value} />
 		{/* <div className='content-container'>
 		</div>  */}
     </div>
