@@ -1,18 +1,16 @@
-import { useState } from 'react'
 import '../styles/Tabs.css'
 
-const Tabs = () => {
-	const [selected, setSelected] = useState(true)
+const Tabs = ({handleTabChange, selectedTab}) => {
 
 	return (
 		<div className="tabContainer">
 		<div className='container'>
-			<div className={`${selected?"rectangle selected":'rectangle'}`}
-			onClick={()=>setSelected(true)}>
+			<div className={`${selectedTab?"rectangle selected":'rectangle'}`}
+			onClick={()=>handleTabChange(true)}>
 				All
 			</div>
-			<div className={`${!selected?"rectangle selected":'rectangle'}`}
-			onClick={()=>setSelected(false)}>
+			<div className={`${!selectedTab?"rectangle selected":'rectangle'}`}
+			onClick={()=>handleTabChange(false)}>
 			My Faves
 			</div>
 		</div>
