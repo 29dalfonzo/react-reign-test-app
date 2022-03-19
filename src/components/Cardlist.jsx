@@ -27,11 +27,11 @@ const Cardlist = () => {
 		//TODO: validate if filteredData.length == 8
 		//if not, fetch more data and filter again
 		//if yes, setData to filteredData
-		setData(filteredData)
+		setData(filteredData.slice(0, 8))
 	}
 
 	return (
-	<div className='card-list-container'>
+		<div className='list-container'>
 		<div className='card-list'>
 			{data.map(item => (
 				<Card key={item.objectID} data={item} />

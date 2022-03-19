@@ -8,13 +8,14 @@ import Cardlist from './components/Cardlist';
 function App() {
 
   return (
-    <div>
-			<Header />
-			<Tabs />
-		<div className='content-container'>
-			<Dropdown />
+    <div className='body-container'>
+  <div class="Pages">5</div>
+			  <Header />
+			 <Tabs />
+			 <Dropdown />
 			<Cardlist />
-		</div>
+		{/* <div className='content-container'>
+		</div>  */}
     </div>
   );
 }

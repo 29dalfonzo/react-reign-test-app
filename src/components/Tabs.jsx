@@ -5,6 +5,7 @@ const Tabs = () => {
 	const [selected, setSelected] = useState(true)
 
 	return (
+		<div className="tabContainer">
 		<div className='container'>
 			<div className={`${selected?"rectangle selected":'rectangle'}`}
 			onClick={()=>setSelected(true)}>
@@ -14,6 +15,7 @@ const Tabs = () => {
 			onClick={()=>setSelected(false)}>
 			My Faves
 			</div>
+		</div>
 		</div>
 	)
 }

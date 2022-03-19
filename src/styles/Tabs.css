@@ -1,3 +1,6 @@
+.tabContainer{
+	grid-area: Tabs;
+}
 .container{
 	display: flex;
 	justify-content: center;

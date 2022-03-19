@@ -27,6 +27,7 @@ const DropDown= () => {
 	}
 
 	return (
+		<div className='dropdown-container'>
         <div className="dropdown">
 				<div className='dropbtn' onClick={()=>setShow(!show)} >
 					{selected.icon && <img src={selected.icon} alt={selected.name} width="20" height="20"/>}
@@ -43,6 +44,7 @@ const DropDown= () => {
 						))}
             </div>
         </div>
+				</div>
 	)
 }
 

@@ -1,13 +1,16 @@
+.dropdown-container{
+  grid-area: Select;
+}
 
 .dropbtn {
  width: 240px;
   height: 32px;
-	margin: 63px 114px 1px 150px;
+	/* margin: 63px 114px 1px 150px; */
   padding: 5px 12px 5px 12px;
   border-radius: 4px;
   border: solid 1px #2e2e2e;
   background-color: #fff;
-	curson: pointer;
+	cursor: pointer;
 	user-select: none;
 	position: relative;
 }
@@ -29,17 +32,7 @@
 }
 
 .dropdown-content {
-	  width: 240px;
-		height: 150px;
-		/* margin: 0 150px; */
-		padding: 5px;
     display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 
-        0px rgba(0, 0, 0, 0.2);
-    z-index: 1;
 }
 
 .dropdown-content div {
@@ -61,8 +54,8 @@
 .showMenu{
     display: block;
 	  width: 240px;
-		height: 139px;
-		margin: 0 149px;
+		height: 150px;
+		/* margin: 0 149px; */
 		padding: 5px;
     position: absolute;
     background-color: #f9f9f9;
@@ -73,12 +66,12 @@
 }
 
 /* TODO: Resonsive in different screen size */
-@media screen and (max-width: 480px) {
-	.dropbtn {
-		margin: 63px 0px 1px 40%;
-	}
-	.dropdown-content {
-		margin-left: 40%;
-	}
-  
-}
+/* @media screen and (max-width: 480px) { */
+/* 	.dropbtn { */
+/* 		margin: 63px 0px 1px 40%; */
+/* 	} */
+/* 	.dropdown-content { */
+/* 		margin-left: 40%; */
+/* 	} */
+/*    */
+/* } */
