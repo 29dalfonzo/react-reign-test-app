@@ -3,6 +3,7 @@ import './App.css';
 import Header  from "./pages/Header";
 import Tabs from './components/Tabs';
 import Dropdown from './components/DropDown';
+import Cardlist from './components/Cardlist';
 
 function App() {
 
@@ -10,7 +11,10 @@ function App() {
     <div>
 			<Header />
 			<Tabs />
+		<div className='content-container'>
 			<Dropdown />
+			<Cardlist />
+		</div>
     </div>
   );
 }

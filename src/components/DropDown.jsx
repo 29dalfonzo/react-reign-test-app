@@ -27,15 +27,14 @@ const DropDown= () => {
 	}
 
 	return (
-		<div>
         <div className="dropdown">
-				<div className='dropbtn' onClick={()=>setShow(!show)}>
+				<div className='dropbtn' onClick={()=>setShow(!show)} >
 					{selected.icon && <img src={selected.icon} alt={selected.name} width="20" height="20"/>}
 						{selected.name}
 					<img className='icon-arrow' src={arrow} alt="arrow" width="10" height="10"/>
 				</div>
 
-				  <div className={`dropdown-content ${show?'showMenu':''}`}>
+				  <div className={`dropdown-content ${show?'showMenu':''}`} onMouseLeave={()=>setShow(false)}>
 						{options.map((option,index) => (
 						<div onClick={()=>onSelect(option)} key={index} >
 						<img src={option.img} width="20" height="20" alt={option.name} />
@@ -44,7 +43,6 @@ const DropDown= () => {
 						))}
             </div>
         </div>
-		</div>
 	)
 }
 

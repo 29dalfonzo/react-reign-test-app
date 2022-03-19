@@ -1,3 +1,4 @@
+
 .dropbtn {
  width: 240px;
   height: 32px;
@@ -7,7 +8,7 @@
   border: solid 1px #2e2e2e;
   background-color: #fff;
 	curson: pointer;
-user-select: none;
+	user-select: none;
 	position: relative;
 }
 
@@ -24,12 +25,13 @@ user-select: none;
 .dropdown {
     position: relative;
     display: inline-block;
+	margin-bottom:5%;
 }
 
 .dropdown-content {
 	  width: 240px;
-		height: 139px;
-		margin: 0 149px;
+		height: 150px;
+		/* margin: 0 150px; */
 		padding: 5px;
     display: none;
     position: absolute;
@@ -70,6 +72,13 @@ user-select: none;
     z-index: 1;
 }
 
-/* .dropdown:hover .dropbtn { */
-/*     background-color: #3e8e41; */
-/* } */
+/* TODO: Resonsive in different screen size */
+@media screen and (max-width: 480px) {
+	.dropbtn {
+		margin: 63px 0px 1px 40%;
+	}
+	.dropdown-content {
+		margin-left: 40%;
+	}
+  
+}
