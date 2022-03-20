@@ -22,10 +22,10 @@ function App() {
 	}
 
 	const handleDropdownChange = (dropdown) => {
-		setSelectedDropdown(dropdown);
-		// console.log(dropdown)
-		localStorage.setItem('selectedDropdown', JSON.stringify(dropdown));
-	}
+    setSelectedDropdown(dropdown);
+    // console.log(dropdown)
+    localStorage.setItem("selectedDropdown", JSON.stringify(dropdown));
+  };
 
 	useEffect(() => {
 		const selectedDropdown = JSON.parse(localStorage.getItem('selectedDropdown'));

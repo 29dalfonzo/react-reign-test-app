@@ -1,14 +1,14 @@
-.Pages{
-grid-area: Pages; 
+.Pages {
+  grid-area: Pages;
 }
 
-.Buttons{
-	display: flex;
-	flex-direction: row;
+.Buttons {
+  display: flex;
+  flex-direction: row;
 }
 
-.btn{
-	cursor: pointer;
+.btn {
+  cursor: pointer;
   width: 32px;
   height: 32px;
   margin: 0 0 0 8px;
@@ -17,8 +17,8 @@ grid-area: Pages;
   background-color: #fff;
 }
 
-.selected{
-	border: solid 1px #1890ff;
-	background-color: #1890ff;
-	color: #fff;
+.selected {
+  border: solid 1px #1890ff;
+  background-color: #1890ff;
+  color: #fff;
 }

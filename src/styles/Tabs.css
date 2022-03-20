@@ -1,26 +1,25 @@
-.tabContainer{
-	grid-area: Tabs;
+.tabContainer {
+  grid-area: Tabs;
 }
-.container{
-	display: flex;
-	justify-content: center;
-	align-items: center;
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-
 
 .rectangle {
-	cursor: pointer;
-	display: flex;
-	justify-content: center;
-	align-items: center;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100px;
   height: 31px;
   padding: 3px 10px 0 15px;
   border-radius: 2px;
-  border: solid 1px  #888888 
+  border: solid 1px #888888;
 }
 
-.selected{
-  border: solid 1px  #1797ff; 
-	color: #1797ff;
+.selected {
+  border: solid 1px #1797ff;
+  color: #1797ff;
 }

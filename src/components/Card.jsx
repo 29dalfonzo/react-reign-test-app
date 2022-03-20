@@ -38,13 +38,13 @@ const Card = ({data}) => {
 		//check if fav is already in local storage
 		let finded = favs.find((fav) => fav.objectID === data.objectID)
 		if (finded) {
-			//remove from favs
-			const newFavs = favs.filter((fav) => fav.objectID !== data.objectID)
-			// console.log('newFavs', newFavs)
-			localStorage.setItem('favs', JSON.stringify(newFavs))
-			setFav(false)
-			return
-		}
+      //remove from favs
+      const newFavs = favs.filter((fav) => fav.objectID !== data.objectID);
+      // console.log('newFavs', newFavs)
+      localStorage.setItem("favs", JSON.stringify(newFavs));
+      setFav(false);
+      return;
+    }
 		//add to favs
 		// console.log(favs,data)
 		favs.push(data)

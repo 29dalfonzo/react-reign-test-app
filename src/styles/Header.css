@@ -1,4 +1,4 @@
-.header{
+.header {
   width: 100%;
   height: 114px;
   margin: 0 0 70px;
@@ -8,8 +8,7 @@
   grid-area: Header;
 }
 
-
-.title{
+.title {
   width: 208px;
   height: 28px;
   object-fit: contain;
@@ -22,5 +21,3 @@
   letter-spacing: normal;
   color: #3b3b3b;
 }
-
-
