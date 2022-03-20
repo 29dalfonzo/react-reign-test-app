@@ -1,10 +1,12 @@
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import './App.css';
 
 import Header  from "./pages/Header";
 import Tabs from './components/Tabs';
 import Dropdown from './components/DropDown';
 import Cardlist from './components/Cardlist';
+import FavsCardlist from './components/FavsCardlist';
+
 
 function App() {
 	const [selectedTab, setSelectedTab] = useState(true);
@@ -16,20 +18,32 @@ function App() {
 
 	const handleTabChange = (tab) => {
 		setSelectedTab(tab);
-		// console.log(selectedTab)
+		console.log(selectedTab)
 	}
 
 	const handleDropdownChange = (dropdown) => {
 		setSelectedDropdown(dropdown);
-		// console.log(selectedDropdown)
+		console.log(dropdown)
+		localStorage.setItem('selectedDropdown', JSON.stringify(dropdown));
 	}
+
+	useEffect(() => {
+		const selectedDropdown = JSON.parse(localStorage.getItem('selectedDropdown'));
+		if(selectedDropdown) {
+			setSelectedDropdown(selectedDropdown);
+		}
+	}, [])
 
   return (
     <div className='body-container'>
 		  <Header />
 			 <Tabs handleTabChange={handleTabChange} selectedTab={selectedTab} />
 			 <Dropdown handleDropdownChange={handleDropdownChange} selectedDropdown={selectedDropdown} />
-			<Cardlist selectedDropdown={selectedDropdown.value} />
+			{selectedTab?
+<Cardlist selectedDropdown={selectedDropdown.value} />
+				:
+				<FavsCardlist />
+			}
 		{/* <div className='content-container'>
 		</div>  */}
     </div>

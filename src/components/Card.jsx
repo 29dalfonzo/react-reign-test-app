@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import {useEffect, useState} from 'react'
 import time from '../assets/icon-time-.svg'
 import heart from '../assets/empty-icon-favorite-2.svg'
 import heartFull from '../assets/fulled-icon-favorite-3.svg'
@@ -30,6 +30,44 @@ const Card = ({data}) => {
 	}
 
 
+	const saveFavorite = () => {
+		//save favs to local storage as arr
+		//get favs from local storage
+		const favs = JSON.parse(localStorage.getItem('favs')) || []
+		// console.log('favs', favs)
+		//check if fav is already in local storage
+		let finded = favs.find((fav) => fav.objectID === data.objectID)
+		if (finded) {
+			//remove from favs
+			const newFavs = favs.filter((fav) => fav.objectID !== data.objectID)
+			console.log('newFavs', newFavs)
+			localStorage.setItem('favs', JSON.stringify(newFavs))
+			setFav(false)
+			return
+		}
+		//add to favs
+		// console.log(favs,data)
+		favs.push(data)
+		// console.log(favs,data)
+		localStorage.setItem('favs', JSON.stringify(favs))
+		setFav(true)
+	}
+
+  const checkFav=()=>{
+		//get favs from local storage to check if fav is already in local storage to set fav true
+		const favs = JSON.parse(localStorage.getItem('favs')) || []
+		let finded = favs.find((fav) => fav.objectID === data.objectID)
+		// console.log(favs,finded)
+		if (finded) {
+			setFav(true)
+		}
+	}
+
+	useEffect(() => {
+		checkFav()
+	}, [])
+
+
 	return (
 			<div className="card-container">
 				<div className="card-time-detail" onClick={()=>openinTab(data.story_url)}	>
@@ -41,7 +79,7 @@ const Card = ({data}) => {
 				</div>
 				<div className='card-fav'>
 					<img src={`${fav?heartFull:heart}`} alt="fav-icon"
-						onClick={()=>setFav(!fav)}
+						onClick={()=>saveFavorite()}
 					/>
 				</div>
 			</div>

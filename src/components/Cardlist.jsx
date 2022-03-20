@@ -5,27 +5,19 @@ import Pages from './Pages'
 
 
 const Cardlist = ({selectedDropdown}) => {
+	let dropdown = JSON.parse(localStorage.getItem('selectedDropdown'))?.value||''
 	const [page, setPage] = useState(1)
 	const [hitsPerPage, setHitsPerPage] = useState(15)
-	const [url, setUrl] = useState(`https://hn.algolia.com/api/v1/search_by_date?query=${selectedDropdown}&hitsPerPage=${hitsPerPage}&page=${page}`)
+	let url=`https://hn.algolia.com/api/v1/search_by_date?query=${dropdown}&hitsPerPage=${hitsPerPage}&page=${page}`
+	// const [url, setUrl] = useState(`https://hn.algolia.com/api/v1/search_by_date?query=${dropdown}&hitsPerPage=${hitsPerPage}&page=${page}`)
 
 	const [data, setData] = useState([])
 
 
-	const newUrl = () => {
-		setUrl(`https://hn.algolia.com/api/v1/search_by_date?query=${selectedDropdown}&hitsPerPage=${hitsPerPage}&page=${page}`)
-	}
+	// const newUrl = () => {
+	// 	setUrl(`https://hn.algolia.com/api/v1/search_by_date?query=${selectedDropdown}&hitsPerPage=${hitsPerPage}&page=${page}`)
+	// }
 
-	const fetchData = async () => {
-		try{
-		const response = await fetch(url)
-		const json = await response.json()
-		// console.log(json)
-		filterData(json.hits)
-		}catch(e){
-			console.error(e)
-		}
-	}
 
 	const filterData = (data) => {
 		let filteredData = data.filter(item => item.author && item.story_title && item.story_url && item.created_at)
@@ -49,9 +41,15 @@ const Cardlist = ({selectedDropdown}) => {
 		// console.log(page)
 	}
 	useEffect(() => {
-		// console.log(url)
-		newUrl()
-		fetchData()
+		// newUrl()
+		//fetch data from url
+		fetch(url)
+			.then(response => response.json())
+			.then(data => {
+				// console.log(data)
+				filterData(data.hits)
+			})
+			.catch(err => console.log(err))
 	}, [selectedDropdown, page, url])
 
 	return (
