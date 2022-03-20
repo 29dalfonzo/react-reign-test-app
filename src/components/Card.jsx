@@ -40,7 +40,7 @@ const Card = ({data}) => {
 		if (finded) {
 			//remove from favs
 			const newFavs = favs.filter((fav) => fav.objectID !== data.objectID)
-			console.log('newFavs', newFavs)
+			// console.log('newFavs', newFavs)
 			localStorage.setItem('favs', JSON.stringify(newFavs))
 			setFav(false)
 			return
@@ -65,6 +65,7 @@ const Card = ({data}) => {
 
 	useEffect(() => {
 		checkFav()
+	// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [])
 
 

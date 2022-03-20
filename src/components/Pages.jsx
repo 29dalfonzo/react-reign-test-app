@@ -1,14 +1,10 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import '../styles/Pages.css'
 
 
 const Pages = ({page, handleCurrentpage}) => {
 	const [button,setButton]= useState([1,2,3,4,5,6,7,8,9])
 	const [current,setcurrent]= useState(page)
-
-	useEffect(()=>{
-		handleCurrentpage(current)
-	},[current])
 
 	const handlePage =(i)=>{
 		if (i<1) return
@@ -22,8 +18,13 @@ const Pages = ({page, handleCurrentpage}) => {
 			 remakePages(i,false)
 			return
 			}
-			else setcurrent(i)
+			else {
+			setcurrent(i)
+			handleCurrentpage(i)
+			}
+		
 	}
+
 
 	const remakePages = (i,more)=>{
 		// take out the second element an add a new one (i+1) in button.length-2
@@ -32,11 +33,13 @@ const Pages = ({page, handleCurrentpage}) => {
 		newButton.push(i)
 		setButton(newButton)
 		setcurrent(i)
+			handleCurrentpage(i)
 		} else {
 		let newButton = button.slice(0,button.length-1)
 		newButton.unshift(i)
 		setButton(newButton)
 		setcurrent(i)
+		handleCurrentpage(i)
 			
 		}
 

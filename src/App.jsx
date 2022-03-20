@@ -18,7 +18,7 @@ function App() {
 
 	const handleTabChange = (tab) => {
 		setSelectedTab(tab);
-		console.log(selectedTab)
+		// console.log(selectedTab)
 	}
 
 	const handleDropdownChange = (dropdown) => {
@@ -37,8 +37,8 @@ function App() {
   return (
     <div className='body-container'>
 		  <Header />
-			 <Tabs handleTabChange={handleTabChange} selectedTab={selectedTab} />
-			 <Dropdown handleDropdownChange={handleDropdownChange} selectedDropdown={selectedDropdown} />
+			<Tabs handleTabChange={handleTabChange} selectedTab={selectedTab} />
+			 {selectedTab &&<Dropdown handleDropdownChange={handleDropdownChange} selectedDropdown={selectedDropdown} />}
 			{selectedTab?
 <Cardlist selectedDropdown={selectedDropdown.value} />
 				:
