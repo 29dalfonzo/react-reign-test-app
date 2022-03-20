@@ -1,7 +1,7 @@
 import {useEffect, useState} from 'react';
 import './App.css';
 
-import Header  from "./pages/Header";
+import Header  from "./components/Header";
 import Tabs from './components/Tabs';
 import Dropdown from './components/DropDown';
 import Cardlist from './components/Cardlist';
@@ -23,7 +23,7 @@ function App() {
 
 	const handleDropdownChange = (dropdown) => {
 		setSelectedDropdown(dropdown);
-		console.log(dropdown)
+		// console.log(dropdown)
 		localStorage.setItem('selectedDropdown', JSON.stringify(dropdown));
 	}
 
