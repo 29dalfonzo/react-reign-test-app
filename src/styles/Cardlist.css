@@ -20,6 +20,10 @@
   display: grid;
 }
 
+.card-container:hover{
+  opacity: 0.5;
+}
+
 .card-time-detail {
   grid-area: 1 / 1 / 2 / 3;
   display: flex;
